@@ -3,9 +3,13 @@ package sharpenControllers;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 
+import sharpenProducts.storeManager;
+
 @Controller
 public class productController {
-
+	
+	
+	
 	@GetMapping("/products")
 	public String pageProduct() {
 		return "products";
