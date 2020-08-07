@@ -59,7 +59,7 @@ p{
 }
 .btn{
 	display: inline-block;
-	background: #3333ff;
+	background: #e60000;
 	color: #ffecb3;
 	padding: 8px 30px;
 	margin: 30px 0;
@@ -69,11 +69,8 @@ p{
 .header{
 	width: 100%;
 	height: 100vh;
-<<<<<<< HEAD
-	background-image: linear-gradient(rgba(0,0,0,0.8),rgba(0,0,0,0.8)), url("/images/tlo.jpg");
-=======
+
 	background-image: linear-gradient(rgba(0,0,0,0.8),rgba(0,0,0,0.8)), url(/images/tlo.jpg);
->>>>>>> 31cc996213f7b2dd4c872c095ddb99c439ed12f1
 	background-size: cover;
 	background-position: center;
 }
