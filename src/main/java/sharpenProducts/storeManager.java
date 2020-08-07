@@ -1,8 +1,14 @@
 package sharpenProducts;
 
+import sharpenShopping.shoppingBasket;
+
 public class storeManager {
 	
 	public storeManager() {
+		
+//		-----------------------------------------SHOPPING BASKET
+		
+		shoppingBasket basket = new shoppingBasket();
 		
 //		-----------------------------------------PRODUCT CATEGORIES
 		productCategory meleeWeapons = new productCategory("Melee");
@@ -67,6 +73,17 @@ public class storeManager {
 		shotgun3.addProductToSubcategory();
 		shotgun4.addProductToSubcategory();
 		shotgun5.addProductToSubcategory();
+
+//		-----------------------------------------OPERATIONS
+		
+		basket.getBasket().add(blunt1);
+		basket.getBasket().add(knife3);
+		basket.getBasket().add(shotgun5);
+		
+		basket.removeProduct(1);
+		System.out.println(basket.getSuma());
+		
+		
 		
 		System.out.println(blunt1.getNazwa());
 		System.out.println(bluntWeapons.getSubProducts().get(0).getNazwa());
