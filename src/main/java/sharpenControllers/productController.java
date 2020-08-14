@@ -57,8 +57,20 @@ public class productController {
 	// -----------------------------------------------------BLUNT WEAPON PRODUCTS
 	
 	@GetMapping("/products/melee/blunt/blunt1")
-	public String pageBlunt1() {
-		
+	public String pageBlunt1(Model model) {
+		model.addAttribute("blunt", storeSharpen.getMeleeWeapons().getSubcategories().get(0).getSubProducts().get(0));
+		return "blunt1";
+	}
+	
+	@PostMapping("/products/melee/blunt/blunt1")
+	public String pageBlunt1Update(@RequestParam(value = "amount") int amount, Model model) {
+		Product product = storeSharpen.getMeleeWeapons().getSubcategories().get(0).getSubProducts().get(0);
+		model.addAttribute("blunt", product);
+		for (int i=0;i<amount;i++) {
+			storeManager.basket.getBasket().add(product);
+			System.out.println(storeManager.basket.getBasket().size());
+			System.out.println(storeManager.basket.getSuma());
+		}
 		return "blunt1";
 	}
 	
@@ -151,28 +163,80 @@ public class productController {
 		for (int i=0;i<amount;i++) {
 			storeManager.basket.getBasket().add(product);
 			System.out.println(storeManager.basket.getBasket().size());
+			System.out.println(storeManager.basket.getSuma());
 		}
 		return "shotgun1";
 	}
 	
 	@GetMapping("/products/firearms/shotguns/shotgun2")
-	public String pageShotgun2() {
+	public String pageShotgun2(Model model) {
+		model.addAttribute("shotgun", storeSharpen.getFirearmsWeapons().getSubcategories().get(1).getSubProducts().get(1));
+		return "shotgun2";
+	}
+	
+	@PostMapping("/products/firearms/shotguns/shotgun2")
+	public String pageShotgun2Update(@RequestParam(value = "amount") int amount, Model model) {
+		Product product = storeSharpen.getFirearmsWeapons().getSubcategories().get(1).getSubProducts().get(1);
+		model.addAttribute("shotgun", product);
+		for (int i=0;i<amount;i++) {
+			storeManager.basket.getBasket().add(product);
+			System.out.println(storeManager.basket.getBasket().size());
+			System.out.println(storeManager.basket.getSuma());
+		}
 		return "shotgun2";
 	}
 	
 	@GetMapping("/products/firearms/shotguns/shotgun3")
-	public String pageShotgun3() {
+	public String pageShotgun3(Model model) {
+		model.addAttribute("shotgun", storeSharpen.getFirearmsWeapons().getSubcategories().get(1).getSubProducts().get(2));
+		return "shotgun3";
+	}
+	
+	@PostMapping("/products/firearms/shotguns/shotgun3")
+	public String pageShotgun3Update(@RequestParam(value = "amount") int amount, Model model) {
+		Product product = storeSharpen.getFirearmsWeapons().getSubcategories().get(1).getSubProducts().get(2);
+		model.addAttribute("shotgun", product);
+		for (int i=0;i<amount;i++) {
+			storeManager.basket.getBasket().add(product);
+			System.out.println(storeManager.basket.getBasket().size());
+			System.out.println(storeManager.basket.getSuma());
+		}
 		return "shotgun3";
 	}
 	
 	@GetMapping("/products/firearms/shotguns/shotgun4")
-	public String pageShotgun4() {
+	public String pageShotgun4(Model model) {
+		model.addAttribute("shotgun", storeSharpen.getFirearmsWeapons().getSubcategories().get(1).getSubProducts().get(3));
+		return "shotgun4";
+	}
+	
+	@PostMapping("/products/firearms/shotguns/shotgun4")
+	public String pageShotgun4Update(@RequestParam(value = "amount") int amount, Model model) {
+		Product product = storeSharpen.getFirearmsWeapons().getSubcategories().get(1).getSubProducts().get(3);
+		model.addAttribute("shotgun", product);
+		for (int i=0;i<amount;i++) {
+			storeManager.basket.getBasket().add(product);
+			System.out.println(storeManager.basket.getBasket().size());
+			System.out.println(storeManager.basket.getSuma());
+		}
 		return "shotgun4";
 	}
 	
 	@GetMapping("/products/firearms/shotguns/shotgun5")
-	public String pageShotgun5() {
+	public String pageShotgun5(Model model) {
+		model.addAttribute("shotgun", storeSharpen.getFirearmsWeapons().getSubcategories().get(1).getSubProducts().get(4));
 		return "shotgun5";
 	}
 	
+	@PostMapping("/products/firearms/shotguns/shotgun5")
+	public String pageShotgun5pdate(@RequestParam(value = "amount") int amount, Model model) {
+		Product product = storeSharpen.getFirearmsWeapons().getSubcategories().get(1).getSubProducts().get(4);
+		model.addAttribute("shotgun", product);
+		for (int i=0;i<amount;i++) {
+			storeManager.basket.getBasket().add(product);
+			System.out.println(storeManager.basket.getBasket().size());
+			System.out.println(storeManager.basket.getSuma());
+		}
+		return "shotgun5";
+	}
 }
