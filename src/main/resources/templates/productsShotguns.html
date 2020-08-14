@@ -1,13 +1,64 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-<meta charset="UTF-8">
-<title>SHARPEN - kup sobie broń!</title>
-<link>
+    <meta charset="UTF-8">
+    <title> SHARPEN | Shotgun product</title>
+    <link rel="stylesheet" href="/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
 </head>
+
 <body>
 
-	<h1>WITAJ W SHARPEN!</h1>
+    <div class="header">
+        <div class="container">
+            <div class="navbar">
+                <div class="logo">
+                    <img src="logo2.png" width="130px">
+                </div>
+                <nav>
+                    <ul>
+                        <li><a href="">Home</a></li>
+                        <li><a href="">Produkty</a></li>
+                        <li><a href="">Kontakt</a></li>
+                        <li><a href="">Konto</a></li>
+                        <li><a href="">Koszyk</a></li>
+                    </ul>
+                </nav>
+            </div>
+            <div class="small-container">
+                <h2 class ="title"> Shotguns </h2>
+                <div class="row">
+                    <div class="col-4">
+                        <img src="/images/stoeger.jpg">
+                        <h4><span th:text="${shotgun.nazwa}"></span></h4>
+                        <div class="rating">
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star-o"></i>
+                        </div>
+                        <p><span th:text="${shotgun.cena}"></span>$</p>
+                        <button class="btn" type="submit" form="form1"> Dodaj do koszyka </button>
+                    </div>
+
+
+
+                </div>
+
+            </div>
+        </div>
+
+
+    </div>
+
+
+
 
 </body>
+
 </html>
