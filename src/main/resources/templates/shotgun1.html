@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html>
+<html xmlns:th="http:www.thymeleaf.org">
 <head>
 	<meta charset="UTF-8">
 	<title> SHARPEN  | Shotgun1 product</title>
-	<link rel="stylesheet" href="style.css">
+	<link rel="stylesheet" href="/style.css">
 	<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet"> 
 </head>
 <body>
@@ -13,7 +13,7 @@
 	
 	<div class="navbar">
 		<div class="logo">
-			<img src="logo2.png"	width="130px">	
+			<img src="/images/logo2.png"	width="130px">	
 	</div>
 	<nav>
 		<ul>
@@ -26,7 +26,7 @@
 	</nav>
 </div>
 </div>
-</div>
+
 
 
 <!------------Produkt-------------------->
@@ -34,21 +34,23 @@
 <div class="small-container single-product">
 	<div class="row">
 		<div class="col-2">
-			<img src="stroger.jpg" width="100%">
+			<img src="/images/stoegerM3000.jpg" width="100%">
 		</div>
 		<div class="col-2">
-			<h1> Strzelba Stoeger M3000 Shotgun </h1>
-			<h4> 1000 $ </h4>
-			<input type="number" value="1">
-			<a href="" class = "btn"> Dodaj do koszyka </a>
+			<h1><span th:text="${shotgun.nazwa}"></span></h1>
+			<h4><span th:text="${shotgun.cena}"></span>$</h4>
+				<form id="form1" method="post" action="shotgun1">
+				<input type="number" value="1" name="amount">
+				<button class="btn" type="submit" form="form1"> Dodaj do koszyka </button>
+				</form>			
 
 			<h3> Opis produktu</h3>
 			<p> Samopowtarzalna strzelba Stoeger M3000 Shotgun Realtree APG przeznaczona do polowań, w szczególności na kaczki, indyki oraz inne ptactwo łowne. Jest to solidna, niezawodna i uniwersalna broń myśliwska strzelająca amunicją magnum. </p>
 		</div>
-		
+		<!--</form>--> 
 </div>
 </div>
-
+</div>
 
 </body>
 </html>

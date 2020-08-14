@@ -3,7 +3,10 @@ package sharpenControllers;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
+import sharpenProducts.Product;
 import sharpenProducts.storeManager;
 
 @Controller
@@ -136,7 +139,19 @@ public class productController {
 	// -----------------------------------------------------SHOTGUN PRODUCTS
 	
 	@GetMapping("/products/firearms/shotguns/shotgun1")
-	public String pageShotgun1() {
+	public String pageShotgun1(Model model) {
+		model.addAttribute("shotgun", storeSharpen.getFirearmsWeapons().getSubcategories().get(1).getSubProducts().get(0));
+		return "shotgun1";
+	}
+	
+	@PostMapping("/products/firearms/shotguns/shotgun1")
+	public String pageShotgun1Update(@RequestParam(value = "amount") int amount, Model model) {
+		Product product = storeSharpen.getFirearmsWeapons().getSubcategories().get(1).getSubProducts().get(0);
+		model.addAttribute("shotgun", product);
+		for (int i=0;i<amount;i++) {
+			storeManager.basket.getBasket().add(product);
+			System.out.println(storeManager.basket.getBasket().size());
+		}
 		return "shotgun1";
 	}
 	

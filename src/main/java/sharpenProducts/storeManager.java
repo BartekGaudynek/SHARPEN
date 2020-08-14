@@ -7,7 +7,7 @@ public class storeManager {
 	
 	private productCategory meleeWeapons;
 	private productCategory firearmsWeapons;
-	private static shoppingBasket basket;
+	public static shoppingBasket basket;
 //	private static newConnection connection;
 	
 	public storeManager() {
@@ -69,7 +69,7 @@ public class storeManager {
 		handgun5.addProductToSubcategory();
 		
 //		-----------------------------------------SHOTGUN WEAPON PRODUCTS
-		Product shotgun1 = new Product("Strzelba1", 100, null, shotgunWeapons);
+		Product shotgun1 = new Product("Strzelba Stoeger M3000 Shotgun", 1000, null, shotgunWeapons);
 		Product shotgun2 = new Product("Strzelba2", 200, null, shotgunWeapons);
 		Product shotgun3 = new Product("Strzelba3", 300, null, shotgunWeapons);
 		Product shotgun4 = new Product("Strzelba4", 400, null, shotgunWeapons);
@@ -82,12 +82,12 @@ public class storeManager {
 
 //		-----------------------------------------OPERATIONS
 		
-		basket.getBasket().add(blunt1);
-		basket.getBasket().add(knife3);
-		basket.getBasket().add(shotgun5);
+//		basket.getBasket().add(blunt1);
+//		basket.getBasket().add(knife3);
+//		basket.getBasket().add(shotgun1);
 //		System.out.println(basket.getSuma());
 		
-		basket.removeProduct(1);
+//		basket.removeProduct(1);
 //		System.out.println(basket.getSuma());
 		
 		
