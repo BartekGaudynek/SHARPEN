@@ -22,6 +22,7 @@ public class shoppingBasket {
 	}
 	
 	public int getSuma() {
+		suma = 0;
 		for (int i=0; i<basket.size();i++) {
 			suma = suma	+ basket.get(i).getCena();		
 		}

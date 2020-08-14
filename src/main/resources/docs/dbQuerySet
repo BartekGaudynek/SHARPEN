@@ -1,0 +1,21 @@
+DROP TABLE sharpenUSERS;
+
+CREATE TABLE sharpenUSERS(
+	USER_ID serial,
+	userMail varchar(150),
+	userPassword varchar(50),
+	userName varchar(50),
+	userSurname varchar(50),
+	userStreet varchar(50),
+	userPostalCode varchar(20),
+	userCity varchar(50),
+	PRIMARY KEY(USER_ID)
+);
+
+SELECT * FROM sharpenUSERS;
+SELECT * FROM sharpenUSERS WHERE userMail='mail@mail.com';
+
+INSERT INTO sharpenUSERS (userMail, userPassword, userName, userSurname, userStreet, userPostalCode, userCity, userPhone) VALUES
+('mail@mail.com','mail123','mail','mailowski','mailowa','99-999','mailowo', 987654321)
+
+DELETE FROM sharpenUSERS WHERE userMail='adres@adres.pl';

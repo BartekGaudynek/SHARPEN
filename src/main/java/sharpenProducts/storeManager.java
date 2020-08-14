@@ -1,18 +1,24 @@
 package sharpenProducts;
 
+import sharpenDataBase.newConnection;
 import sharpenShopping.shoppingBasket;
 
 public class storeManager {
+	
+	private productCategory meleeWeapons;
+	private productCategory firearmsWeapons;
+	private static shoppingBasket basket;
+//	private static newConnection connection;
 	
 	public storeManager() {
 		
 //		-----------------------------------------SHOPPING BASKET
 		
-		shoppingBasket basket = new shoppingBasket();
+		basket = new shoppingBasket();
 		
 //		-----------------------------------------PRODUCT CATEGORIES
-		productCategory meleeWeapons = new productCategory("Melee");
-		productCategory firearmsWeapons = new productCategory("Melee");
+		meleeWeapons = new productCategory("Melee");
+		firearmsWeapons = new productCategory("Melee");
 		
 		
 //		-----------------------------------------PRODUCT SUBCATEGORIES
@@ -79,15 +85,32 @@ public class storeManager {
 		basket.getBasket().add(blunt1);
 		basket.getBasket().add(knife3);
 		basket.getBasket().add(shotgun5);
+//		System.out.println(basket.getSuma());
 		
 		basket.removeProduct(1);
-		System.out.println(basket.getSuma());
+//		System.out.println(basket.getSuma());
 		
 		
 		
-		System.out.println(blunt1.getNazwa());
-		System.out.println(bluntWeapons.getSubProducts().get(0).getNazwa());
-		System.out.println(meleeWeapons.getSubcategories().get(0).getSubProducts().get(0).getNazwa());		
+//		System.out.println(blunt1.getNazwa());
+//		System.out.println(bluntWeapons.getSubProducts().get(0).getNazwa());
+//		System.out.println(meleeWeapons.getSubcategories().get(0).getSubProducts().get(0).getNazwa());		
 	}
+	
+	public productCategory getMeleeWeapons () {
+		return meleeWeapons;
+	}
+	
+	public productCategory getFirearmsWeapons () {
+		return firearmsWeapons;		
+	}
+	
+	public static shoppingBasket getBasket () {
+		return basket;		
+	}
+
+//	public static newConnection getConnection() {
+//		return connection;
+//	}
 	
 }

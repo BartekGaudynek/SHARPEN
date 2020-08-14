@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns:th="http:www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>SHARPEN - kup sobie broń!</title>
+<link>
+</head>
+<body>
+
+	<h1>WITAJ W SHARPEN!</h1>
+	
+	<table>
+		<thead>
+			<tr>
+				<th>Nazwa</th>
+				<th>Cena</th>
+			</tr>
+		</thead>
+
+		<tbody>
+			<tr th:each="basket: ${basket}">
+				<td><span th:text="${basket.nazwa}">Nazwa</span></td>
+				<td><span th:text="${basket.cena}">Cena</span></td>
+			</tr>
+			<tr>
+				<td></td>
+				<td><span th:text="${cena}">Cena</span></td>
+			</tr>
+		</tbody>
+	</table>
+	
+</body>
+</html>

@@ -1,6 +1,7 @@
 package sharpenControllers;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
 import sharpenProducts.storeManager;
@@ -8,7 +9,7 @@ import sharpenProducts.storeManager;
 @Controller
 public class productController {
 	
-	
+	storeManager storeSharpen = new storeManager();
 	
 	@GetMapping("/products")
 	public String pageProduct() {
@@ -30,7 +31,8 @@ public class productController {
 	// -----------------------------------------------------PRODUCT SUBCATEGORIES
 	
 	@GetMapping("/products/melee/blunt")
-	public String pageBlunt() {
+	public String pageBlunt(Model model) {
+		model.addAttribute("blunt", storeSharpen.getMeleeWeapons().getSubcategories().get(0).getSubProducts());
 		return "productsBlunt";
 	}
 	
@@ -53,6 +55,7 @@ public class productController {
 	
 	@GetMapping("/products/melee/blunt/blunt1")
 	public String pageBlunt1() {
+		
 		return "blunt1";
 	}
 	
