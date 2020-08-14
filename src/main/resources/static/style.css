@@ -83,6 +83,7 @@ p{
 	background-size: cover;
 	background-position: center;
 }
+/* pojedynczy pordukt */
 .single-product{
 	margin-top 80px;
 }
@@ -129,6 +130,45 @@ input:focus{
 	padding-left: 25px;
 	padding-right: 25px;
 }
+.col-4{
+    flex-basis: 25%;
+    padding: 10px;
+    min-width: 200px;
+    margin: 50px;
+}
+.col-4 img{
+    width: 80%;
+}
+.title{
+    text-align: center;
+    margin: 0 auto 10px;
+    position: relative;
+    line-height: 50px;
+    color: aliceblue;   
+}
+.title::after{
+    content: '';
+    background: #ff523b;
+    width: 60px;
+    height: 5px;
+    border-radius: 5px;
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+}
+h4 {
+    color: aliceblue;
+    font-weight: 14px;
+}
+.col-4 p{
+    font-size: 14px;
+}
+.rating .fa{
+    color: crimson;
+}
+
+/* koszyk*/
 .cart-page{
 	margin: 80px auto;
 }
