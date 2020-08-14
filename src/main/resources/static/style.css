@@ -9,7 +9,7 @@ body {
 .navbar{
 	display: flex;
 	align-items: center;
-	padding: 20px;
+	padding: 10px;
 
 }
 nav{
@@ -38,39 +38,118 @@ p{
 	padding-left: 25px;
 	padding-right: 25px;
 }
-
-
+.row{
+	display: flex;
+	align-items: center;
+	flex: wrap;
+	justify-content: space-around;
+	margin-top: 6%;
+	}
+	
 .col-2{
 	flex-basis: 50%;
 	min-width: 300px;
+}
 
-}
-.row{
-	max-width: 600px;
-	margin-top: 15%;
-}
+
 
 .col-2 h1{
-	font-size: 56px;
-	line-height: 70px;
+	font-size: 50px;
+	line-height: 60px;
 	letter-spacing: 1px;
-	margin: 25px 0;
+	margin: 25px 10px;
 	color: #ffecb3;
 }
 .btn{
 	display: inline-block;
-	background: #e60000;
-	color: #ffecb3;
+	background: #FF0000;
+	color: #fff;
 	padding: 8px 30px;
 	margin: 30px 0;
 	border-radius: 30px;
+	transition: background 0,5s;
 
+}
+.btn:hover{
+	background: #ff6666;
 }
 .header{
 	width: 100%;
 	height: 100vh;
-
-	background-image: linear-gradient(rgba(0,0,0,0.8),rgba(0,0,0,0.8)), url(/images/tlo.jpg);
+	background-image: linear-gradient(rgba(0,0,0,0.8),rgba(0,0,0,0.8)), url(tlo.jpg);
 	background-size: cover;
 	background-position: center;
+}
+.single-product{
+	margin-top 80px;
+}
+.single-product .col-2 img{
+	padding: 0;
+}
+.single-product .col-2{
+	padding: 20px;
+}
+.single-product h4{
+	margin: 20px 0;
+	font-size: 22px;
+	font-weight: bold;
+	color: #fff;
+}
+.single-product h3{
+	color: #fff;
+
+}
+
+.single-product input{
+	width: 50px;
+	height: 40px;
+	padding-left: 10px;
+	font-size: 20px;
+	margin-right: 10px;
+	border: 1px solid #ff523b;
+}
+input:focus{
+	outline: none;
+}
+.categories{
+	margin: 70px 0;
+}
+.col-3{
+	flex-basis: 15%
+	min-width 200px;
+	margin-bottom: 50px;
+
+}
+.samll-container{
+	max-height: 1080px;
+	margin: auto;
+	padding-left: 25px;
+	padding-right: 25px;
+}
+.cart-page{
+	margin: 80px auto;
+}
+table{
+	width: 100%
+	border-collapse:collapse;
+}
+.cart-info{
+	display: flex;
+	flex-wrap: wrap;
+}
+th{
+	text-align: left;
+	padding: 5px;
+	color: #fff;
+	background: #FF0000;
+	font-weight: normal;
+}
+td input{
+	width: 40px;
+	height: 30px;
+	padding: 5px;
+}
+td a{
+	color: #ffecb3
+	font-size:12px;
 }
