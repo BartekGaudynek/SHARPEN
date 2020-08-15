@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html>
+<html xmlns:th="http:www.thymeleaf.org">
 
 <head>
     <meta charset="UTF-8">
-    <title> SHARPEN | Shotgun product</title>
+    <title> SHARPEN | Handgun products</title>
     <link rel="stylesheet" href="/style.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
@@ -17,24 +17,24 @@
         <div class="container">
             <div class="navbar">
                 <div class="logo">
-                    <img src="logo2.png" width="130px">
+                    <img src="/images/logo2.png" width="130px">
                 </div>
                 <nav>
                     <ul>
-                        <li><a href="">Home</a></li>
-                        <li><a href="">Produkty</a></li>
-                        <li><a href="">Kontakt</a></li>
-                        <li><a href="">Konto</a></li>
-                        <li><a href="">Koszyk</a></li>
+                        <li><a href="/home">Home</a></li>
+						<li><a href="/products">Produkty</a></li>
+						<li><a href="/contact">Kontakt</a></li>
+						<li><a href="/login">Konto</a></li>
+						<li><a href="/basket">Koszyk</a></li>	
                     </ul>
                 </nav>
             </div>
             <div class="small-container">
-                <h2 class ="title"> Shotguns </h2>
+                <h2 class ="title"> Handguns </h2>
                 <div class="row">
-                    <div class="col-4">
+                    <div class="col-4" th:each="handgun: ${handgun}">
                         <img src="/images/stoeger.jpg">
-                        <h4><span th:text="${shotgun.nazwa}"></span></h4>
+                        <h4><span th:text="${handgun.nazwa}"></span></h4>
                         <div class="rating">
                             <i class="fa fa-star"></i>
                             <i class="fa fa-star"></i>
@@ -42,10 +42,13 @@
                             <i class="fa fa-star"></i>
                             <i class="fa fa-star-o"></i>
                         </div>
-                        <p><span th:text="${shotgun.cena}"></span>$</p>
-                        <button class="btn" type="submit" form="form1"> Dodaj do koszyka </button>
+                        <p><span th:text="${handgun.cena}"></span>$</p>
+                        <form id="form4" method="post" action="handguns">
+                        <button class="btn" type="submit" form="form4" th:value="${handgun.index}" name="shbutton"> Dodaj do koszyka </button>
+                        </form> 
+                                           
                     </div>
-
+						
 
 
                 </div>

@@ -1,13 +1,55 @@
 <!DOCTYPE html>
-<html>
+<html xmlns:th="http:www.thymeleaf.org">
 <head>
-<meta charset="UTF-8">
-<title>SHARPEN - kup sobie broń!</title>
-<link>
+	<meta charset="UTF-8">
+	<title> SHARPEN  | Knife4 product</title>
+	<link rel="stylesheet" href="/style.css">
+	<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet"> 
 </head>
 <body>
 
-	<h1>WITAJ W SHARPEN!</h1>
+<div class="header">
+	<div class="container">
+	
+	<div class="navbar">
+		<div class="logo">
+			<img src="/images/logo2.png"	width="130px">	
+	</div>
+	<nav>
+		<ul>
+			<li><a href="/home">Home</a></li>
+			<li><a href="/products">Produkty</a></li>
+			<li><a href="/contact">Kontakt</a></li>
+			<li><a href="/login">Konto</a></li>
+			<li><a href="/basket">Koszyk</a></li>		
+		</ul>
+	</nav>
+</div>
+</div>
+
+
+
+<!------------Produkt-------------------->
+
+<div class="small-container single-product">
+	<div class="row">
+		<div class="col-2">
+			<img src="/images/stoeger.jpg" width="70%">
+		</div>
+		<div class="col-2">
+			<h1><span th:text="${knife.nazwa}"></span></h1>
+			<h4><span th:text="${knife.cena}"></span>$</h4>
+				<form id="form4_1" method="post" action="knife4">
+				<input type="number" value="1" name="amount">
+				<button class="btn" type="submit" form="form4_1"> Dodaj do koszyka </button>
+				</form> 			
+
+			<h3> Opis produktu</h3>
+			<p> Samopowtarzalna strzelba Stoeger M3000 Shotgun Realtree APG przeznaczona do polowań, w szczególności na kaczki, indyki oraz inne ptactwo łowne. Jest to solidna, niezawodna i uniwersalna broń myśliwska strzelająca amunicją magnum. </p>
+		</div> 
+</div>
+</div>
+</div>
 
 </body>
 </html>

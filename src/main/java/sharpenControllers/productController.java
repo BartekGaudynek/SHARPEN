@@ -36,22 +36,65 @@ public class productController {
 	@GetMapping("/products/melee/blunt")
 	public String pageBlunt(Model model) {
 		model.addAttribute("blunt", storeSharpen.getMeleeWeapons().getSubcategories().get(0).getSubProducts());
-		return "productsBlunt";
+		return "blunts";
+	}
+	
+	@PostMapping("/products/melee/blunt")
+	public String pageBluntUpdate(@RequestParam(value = "shbutton") int index, Model model) {
+		model.addAttribute("blunt", storeSharpen.getMeleeWeapons().getSubcategories().get(0).getSubProducts());
+		Product product = storeSharpen.getMeleeWeapons().getSubcategories().get(0).getSubProducts().get(index);
+		storeManager.basket.getBasket().add(product);
+		System.out.println(storeManager.basket.getBasket().size());
+		System.out.println(storeManager.basket.getSuma());
+		return "blunts";
 	}
 	
 	@GetMapping("/products/melee/knives")
-	public String pageKnives() {
-		return "productsKnives";
+	public String pageKnives(Model model) {
+		model.addAttribute("knife", storeSharpen.getMeleeWeapons().getSubcategories().get(1).getSubProducts());
+		return "knives";
+	}
+	
+	@PostMapping("/products/melee/knives")
+	public String pageKnivesUpdate(@RequestParam(value = "shbutton") int index, Model model) {
+		model.addAttribute("knife", storeSharpen.getMeleeWeapons().getSubcategories().get(1).getSubProducts());
+		Product product = storeSharpen.getMeleeWeapons().getSubcategories().get(1).getSubProducts().get(index);
+		storeManager.basket.getBasket().add(product);
+		System.out.println(storeManager.basket.getBasket().size());
+		System.out.println(storeManager.basket.getSuma());
+		return "knives";
 	}
 	
 	@GetMapping("/products/firearms/handguns")
-	public String pageHandguns() {
-		return "productsHandguns";
+	public String pageHandguns(Model model) {
+		model.addAttribute("handgun", storeSharpen.getFirearmsWeapons().getSubcategories().get(0).getSubProducts());
+		return "handguns";
+	}
+	
+	@PostMapping("/products/firearms/handguns")
+	public String pageHandgunsUpdate(@RequestParam(value = "shbutton") int index, Model model) {
+		model.addAttribute("handgun", storeSharpen.getFirearmsWeapons().getSubcategories().get(0).getSubProducts());
+		Product product = storeSharpen.getFirearmsWeapons().getSubcategories().get(0).getSubProducts().get(index);
+		storeManager.basket.getBasket().add(product);
+		System.out.println(storeManager.basket.getBasket().size());
+		System.out.println(storeManager.basket.getSuma());
+		return "handguns";
 	}
 	
 	@GetMapping("/products/firearms/shotguns")
-	public String pageShotguns() {
-		return "productsShotguns";
+	public String pageShotguns(Model model) {
+		model.addAttribute("shotgun", storeSharpen.getFirearmsWeapons().getSubcategories().get(1).getSubProducts());
+		return "shotguns";
+	}
+	
+	@PostMapping("/products/firearms/shotguns")
+	public String pageShotgunsUpdate(@RequestParam(value = "shbutton") int index, Model model) {
+		model.addAttribute("shotgun", storeSharpen.getFirearmsWeapons().getSubcategories().get(1).getSubProducts());
+		Product product = storeSharpen.getFirearmsWeapons().getSubcategories().get(1).getSubProducts().get(index);
+		storeManager.basket.getBasket().add(product);
+		System.out.println(storeManager.basket.getBasket().size());
+		System.out.println(storeManager.basket.getSuma());
+		return "shotguns";
 	}
 	
 	// -----------------------------------------------------BLUNT WEAPON PRODUCTS
@@ -75,76 +118,258 @@ public class productController {
 	}
 	
 	@GetMapping("/products/melee/blunt/blunt2")
-	public String pageBlunt2() {
+	public String pageBlunt2(Model model) {
+		model.addAttribute("blunt", storeSharpen.getMeleeWeapons().getSubcategories().get(0).getSubProducts().get(1));
+		return "blunt2";
+	}
+	
+	@PostMapping("/products/melee/blunt/blunt2")
+	public String pageBlunt2Update(@RequestParam(value = "amount") int amount, Model model) {
+		Product product = storeSharpen.getMeleeWeapons().getSubcategories().get(0).getSubProducts().get(1);
+		model.addAttribute("blunt", product);
+		for (int i=0;i<amount;i++) {
+			storeManager.basket.getBasket().add(product);
+			System.out.println(storeManager.basket.getBasket().size());
+			System.out.println(storeManager.basket.getSuma());
+		}
 		return "blunt2";
 	}
 	
 	@GetMapping("/products/melee/blunt/blunt3")
-	public String pageBlunt3() {
+	public String pageBlunt3(Model model) {
+		model.addAttribute("blunt", storeSharpen.getMeleeWeapons().getSubcategories().get(0).getSubProducts().get(2));
+		return "blunt3";
+	}
+	
+	@PostMapping("/products/melee/blunt/blunt3")
+	public String pageBlunt3Update(@RequestParam(value = "amount") int amount, Model model) {
+		Product product = storeSharpen.getMeleeWeapons().getSubcategories().get(0).getSubProducts().get(2);
+		model.addAttribute("blunt", product);
+		for (int i=0;i<amount;i++) {
+			storeManager.basket.getBasket().add(product);
+			System.out.println(storeManager.basket.getBasket().size());
+			System.out.println(storeManager.basket.getSuma());
+		}
 		return "blunt3";
 	}
 	
 	@GetMapping("/products/melee/blunt/blunt4")
-	public String pageBlunt4() {
+	public String pageBlunt4(Model model) {
+		model.addAttribute("blunt", storeSharpen.getMeleeWeapons().getSubcategories().get(0).getSubProducts().get(3));
+		return "blunt4";
+	}
+	
+	@PostMapping("/products/melee/blunt/blunt4")
+	public String pageBlunt4Update(@RequestParam(value = "amount") int amount, Model model) {
+		Product product = storeSharpen.getMeleeWeapons().getSubcategories().get(0).getSubProducts().get(3);
+		model.addAttribute("blunt", product);
+		for (int i=0;i<amount;i++) {
+			storeManager.basket.getBasket().add(product);
+			System.out.println(storeManager.basket.getBasket().size());
+			System.out.println(storeManager.basket.getSuma());
+		}
 		return "blunt4";
 	}
 	
 	@GetMapping("/products/melee/blunt/blunt5")
-	public String pageBlunt5() {
+	public String pageBlunt5(Model model) {
+		model.addAttribute("blunt", storeSharpen.getMeleeWeapons().getSubcategories().get(0).getSubProducts().get(4));
+		return "blunt5";
+	}
+	
+	@PostMapping("/products/melee/blunt/blunt5")
+	public String pageBlunt5Update(@RequestParam(value = "amount") int amount, Model model) {
+		Product product = storeSharpen.getMeleeWeapons().getSubcategories().get(0).getSubProducts().get(4);
+		model.addAttribute("blunt", product);
+		for (int i=0;i<amount;i++) {
+			storeManager.basket.getBasket().add(product);
+			System.out.println(storeManager.basket.getBasket().size());
+			System.out.println(storeManager.basket.getSuma());
+		}
 		return "blunt5";
 	}
 	
 	// -----------------------------------------------------KNIFE PRODUCTS
 	
 	@GetMapping("/products/melee/knives/knife1")
-	public String pageKnife1() {
+	public String pageKnife1(Model model) {
+		model.addAttribute("knife", storeSharpen.getMeleeWeapons().getSubcategories().get(1).getSubProducts().get(0));
+		return "knife1";
+	}
+	
+	@PostMapping("/products/melee/knives/knife1")
+	public String pageKnife1Update(@RequestParam(value = "amount") int amount, Model model) {
+		Product product = storeSharpen.getMeleeWeapons().getSubcategories().get(1).getSubProducts().get(0);
+		model.addAttribute("knife", product);
+		for (int i=0;i<amount;i++) {
+			storeManager.basket.getBasket().add(product);
+			System.out.println(storeManager.basket.getBasket().size());
+			System.out.println(storeManager.basket.getSuma());
+		}
 		return "knife1";
 	}
 	
 	@GetMapping("/products/melee/knives/knife2")
-	public String pageKnife2() {
+	public String pageKnife2(Model model) {
+		model.addAttribute("knife", storeSharpen.getMeleeWeapons().getSubcategories().get(1).getSubProducts().get(1));
+		return "knife2";
+	}
+	
+	@PostMapping("/products/melee/knives/knife2")
+	public String pageKnife2Update(@RequestParam(value = "amount") int amount, Model model) {
+		Product product = storeSharpen.getMeleeWeapons().getSubcategories().get(1).getSubProducts().get(1);
+		model.addAttribute("knife", product);
+		for (int i=0;i<amount;i++) {
+			storeManager.basket.getBasket().add(product);
+			System.out.println(storeManager.basket.getBasket().size());
+			System.out.println(storeManager.basket.getSuma());
+		}
 		return "knife2";
 	}
 	
 	@GetMapping("/products/melee/knives/knife3")
-	public String pageKnife3() {
+	public String pageKnife3(Model model) {
+		model.addAttribute("knife", storeSharpen.getMeleeWeapons().getSubcategories().get(1).getSubProducts().get(2));
+		return "knife3";
+	}
+	
+	@PostMapping("/products/melee/knives/knife3")
+	public String pageKnife3Update(@RequestParam(value = "amount") int amount, Model model) {
+		Product product = storeSharpen.getMeleeWeapons().getSubcategories().get(1).getSubProducts().get(2);
+		model.addAttribute("knife", product);
+		for (int i=0;i<amount;i++) {
+			storeManager.basket.getBasket().add(product);
+			System.out.println(storeManager.basket.getBasket().size());
+			System.out.println(storeManager.basket.getSuma());
+		}
 		return "knife3";
 	}
 	
 	@GetMapping("/products/melee/knives/knife4")
-	public String pageKnife4() {
+	public String pageKnife4(Model model) {
+		model.addAttribute("knife", storeSharpen.getMeleeWeapons().getSubcategories().get(1).getSubProducts().get(3));
+		return "knife4";
+	}
+	
+	@PostMapping("/products/melee/knives/knife4")
+	public String pageKnife4Update(@RequestParam(value = "amount") int amount, Model model) {
+		Product product = storeSharpen.getMeleeWeapons().getSubcategories().get(1).getSubProducts().get(3);
+		model.addAttribute("knife", product);
+		for (int i=0;i<amount;i++) {
+			storeManager.basket.getBasket().add(product);
+			System.out.println(storeManager.basket.getBasket().size());
+			System.out.println(storeManager.basket.getSuma());
+		}
 		return "knife4";
 	}
 	
 	@GetMapping("/products/melee/knives/knife5")
-	public String pageKnife5() {
+	public String pageKnife5(Model model) {
+		model.addAttribute("knife", storeSharpen.getMeleeWeapons().getSubcategories().get(1).getSubProducts().get(4));
+		return "knife5";
+	}
+	
+	@PostMapping("/products/melee/knives/knife5")
+	public String pageKnife5Update(@RequestParam(value = "amount") int amount, Model model) {
+		Product product = storeSharpen.getMeleeWeapons().getSubcategories().get(1).getSubProducts().get(4);
+		model.addAttribute("knife", product);
+		for (int i=0;i<amount;i++) {
+			storeManager.basket.getBasket().add(product);
+			System.out.println(storeManager.basket.getBasket().size());
+			System.out.println(storeManager.basket.getSuma());
+		}
 		return "knife5";
 	}
 	
 	// -----------------------------------------------------HANDGUN PRODUCTS
 	
 	@GetMapping("/products/firearms/handguns/handgun1")
-	public String pageHandgun1() {
+	public String pageHandgun1(Model model) {
+		model.addAttribute("handgun", storeSharpen.getFirearmsWeapons().getSubcategories().get(0).getSubProducts().get(0));
+		return "handgun1";
+	}
+	
+	@PostMapping("/products/firearms/handguns/handgun1")
+	public String pageHandgun1Update(@RequestParam(value = "amount") int amount, Model model) {
+		Product product = storeSharpen.getFirearmsWeapons().getSubcategories().get(0).getSubProducts().get(0);
+		model.addAttribute("handgun", product);
+		for (int i=0;i<amount;i++) {
+			storeManager.basket.getBasket().add(product);
+			System.out.println(storeManager.basket.getBasket().size());
+			System.out.println(storeManager.basket.getSuma());
+		}
 		return "handgun1";
 	}
 	
 	@GetMapping("/products/firearms/handguns/handgun2")
-	public String pageHandgun2() {
+	public String pageHandgun2(Model model) {
+		model.addAttribute("handgun", storeSharpen.getFirearmsWeapons().getSubcategories().get(0).getSubProducts().get(1));
+		return "handgun2";
+	}
+	
+	@PostMapping("/products/firearms/handguns/handgun2")
+	public String pageHandgun2Update(@RequestParam(value = "amount") int amount, Model model) {
+		Product product = storeSharpen.getFirearmsWeapons().getSubcategories().get(0).getSubProducts().get(1);
+		model.addAttribute("handgun", product);
+		for (int i=0;i<amount;i++) {
+			storeManager.basket.getBasket().add(product);
+			System.out.println(storeManager.basket.getBasket().size());
+			System.out.println(storeManager.basket.getSuma());
+		}
 		return "handgun2";
 	}
 	
 	@GetMapping("/products/firearms/handguns/handgun3")
-	public String pageHandgun3() {
+	public String pageHandgun3(Model model) {
+		model.addAttribute("handgun", storeSharpen.getFirearmsWeapons().getSubcategories().get(0).getSubProducts().get(2));
+		return "handgun3";
+	}
+	
+	@PostMapping("/products/firearms/handguns/handgun3")
+	public String pageHandgun3Update(@RequestParam(value = "amount") int amount, Model model) {
+		Product product = storeSharpen.getFirearmsWeapons().getSubcategories().get(0).getSubProducts().get(2);
+		model.addAttribute("handgun", product);
+		for (int i=0;i<amount;i++) {
+			storeManager.basket.getBasket().add(product);
+			System.out.println(storeManager.basket.getBasket().size());
+			System.out.println(storeManager.basket.getSuma());
+		}
 		return "handgun3";
 	}
 	
 	@GetMapping("/products/firearms/handguns/handgun4")
-	public String pageHandgun4() {
+	public String pageHandgun4(Model model) {
+		model.addAttribute("handgun", storeSharpen.getFirearmsWeapons().getSubcategories().get(0).getSubProducts().get(3));
+		return "handgun4";
+	}
+	
+	@PostMapping("/products/firearms/handguns/handgun4")
+	public String pageHandgun4Update(@RequestParam(value = "amount") int amount, Model model) {
+		Product product = storeSharpen.getFirearmsWeapons().getSubcategories().get(0).getSubProducts().get(3);
+		model.addAttribute("handgun", product);
+		for (int i=0;i<amount;i++) {
+			storeManager.basket.getBasket().add(product);
+			System.out.println(storeManager.basket.getBasket().size());
+			System.out.println(storeManager.basket.getSuma());
+		}
 		return "handgun4";
 	}
 	
 	@GetMapping("/products/firearms/handguns/handgun5")
-	public String pageHandgun5() {
+	public String pageHandgun5(Model model) {
+		model.addAttribute("handgun", storeSharpen.getFirearmsWeapons().getSubcategories().get(0).getSubProducts().get(4));
+		return "handgun5";
+	}
+	
+	@PostMapping("/products/firearms/handguns/handgun5")
+	public String pageHandgun5Update(@RequestParam(value = "amount") int amount, Model model) {
+		Product product = storeSharpen.getFirearmsWeapons().getSubcategories().get(0).getSubProducts().get(4);
+		model.addAttribute("handgun", product);
+		for (int i=0;i<amount;i++) {
+			storeManager.basket.getBasket().add(product);
+			System.out.println(storeManager.basket.getBasket().size());
+			System.out.println(storeManager.basket.getSuma());
+		}
 		return "handgun5";
 	}
 	
