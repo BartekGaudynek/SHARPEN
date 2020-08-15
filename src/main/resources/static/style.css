@@ -172,9 +172,14 @@ h4 {
     transform: translateY(-5px);
     
 
-/* koszyk*/
+/* basket */
 .cart-page{
 	margin: 80px auto;
+}
+.cart-page button{
+    float: right;
+    margin-left: -50%;
+    margin-top: 2em;
 }
 table{
 	width: 100%;
