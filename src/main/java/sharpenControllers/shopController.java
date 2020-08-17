@@ -9,9 +9,24 @@ import sharpenProducts.storeManager;
 public class shopController {
 	
 	@GetMapping("/basket")
-	public String pageHome(Model model) {
+	public String pageBasket(Model model) {
 		model.addAttribute("basket", storeManager.getBasket().getBasket());
 		model.addAttribute("cena", storeManager.getBasket().getSuma());
 		return "basket";
+	}
+	
+	@GetMapping("/basket/login")
+	public String pageBasketLogin(Model model) {
+		return "basketLogin";
+	}
+	
+	@GetMapping("/basket/zamowienie")
+	public String pageOrder(Model model) {
+		return "basketOrder";
+	}
+	
+	@GetMapping("/basket/podsumowanie")
+	public String pageSummary(Model model) {
+		return "basketSummary";
 	}
 }
