@@ -2,7 +2,7 @@
 <html>
 <head>
 	<meta charset="UTF-8">
-	<title> SHARPEN  | Weapon Shop Website</title>
+	<title> SHARPEN  | Registration</title>
 	<link rel="stylesheet" href="/style.css">
 	<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet"> 
 </head>
@@ -27,52 +27,58 @@
 </div>
             <div class="wrapper">
                 <div class="title-registration">
-                    Rejestracja
+                    <h2 class ="title"> Rejestracja </h2>
                 </div>
+                <br>
                 <div class="form">
+                <form id="form1" method="post" action="register">
                     <div class="inputfield">
                         <label>Imię</label>
-                        <input type="text" class="input">
+                        <input type="text" class="input" name="name">
                     </div>
                     <div class="inputfield">
                         <label>Nazwisko</label>
-                        <input type="text" class="input">
-                    </div>
-                    <div class="inputfield">
-                        <label>Hasło</label>
-                        <input type="password" class="input">
-                    </div>
-                    <div class="inputfield">
-                        <label>Potwierdź hasło</label>
-                        <input type="password" class="input">
+                        <input type="text" class="input" name="surname">
                     </div>
                     <div class="inputfield">
                         <label>Email</label>
-                        <input type="text" class="input">
+                        <input type="text" class="input" name="email">
                     </div>
                     <div class="inputfield">
-                        <label>Numer telefonu</label>
-                        <input type="text" class="input">
+                        <label>Hasło</label>
+                        <input type="password" class="input" name="password">
                     </div>
                     <div class="inputfield">
-                        <label>Adres</label>
-                        <textarea class="textarea"></textarea>
+                        <label>Potwierdź hasło</label>
+                        <input type="password" class="input" name="password1">
+                    </div> 
+                    <div class="inputfield">
+                        <label>Ulica</label>
+                        <input type="text" class="input" name="street">
                     </div>
                     <div class="inputfield">
                         <label>Kod pocztowy</label>
-                        <input type="text" class="input">
+                        <input type="text" class="input" name="postalcode">
                     </div>
                     <div class="inputfield">
-                        <input type="submit" value="Zarejestruj" class="btn">
+                        <label>Miasto</label>
+                        <input type="text" class="input" name="city">
                     </div>
+                    <div class="inputfield">
+                        <label>Numer telefonu</label>
+                        <input type="text" class="input" name="phone">
+                    </div>
+                    <div class="inputfield">
+                        <button type="submit" class="btn" form="form1">Zarejestruj</button>
+                    </div>
+                </form>
+                <h3>Nie wszystkie pola formularza zostały wypełnione.</h3>    
                 </div>
             </div>
 
 	
 </div>
 </div>
-
-
 
 </body>
 </html>
