@@ -1,4 +1,8 @@
-DROP TABLE sharpenUSERS;
+
+---------------------------------- Zapytania niezbędne do testowania funkcjonalności -----------------------------------
+------------------------------------------------------------------------------------------------------------------------
+
+1. Tworzenie bazy danych do przechowywania informacji o kontach użytkowników
 
 CREATE TABLE sharpenUSERS(
 	USER_ID serial,
@@ -12,10 +16,23 @@ CREATE TABLE sharpenUSERS(
 	PRIMARY KEY(USER_ID)
 );
 
-SELECT * FROM sharpenUSERS;
-SELECT * FROM sharpenUSERS WHERE userMail='mail@mail.com';
+2. Usunięcie bazy danych z informacjami o kontach użytkowników
+
+DROP TABLE sharpenUSERS;
+
+3. Wprowadzenie testowego konta użytkownika
 
 INSERT INTO sharpenUSERS (userMail, userPassword, userName, userSurname, userStreet, userPostalCode, userCity, userPhone) VALUES
 ('mail@mail.com','mail123','mail','mailowski','mailowa','99-999','mailowo', 987654321)
 
+
+
+
+---------------------------------- Kilka zapytań pomocniczych na etapie tworzenia DB -----------------------------------
+------------------------------------------------------------------------------------------------------------------------
+
+SELECT * FROM sharpenUSERS;
+SELECT * FROM sharpenUSERS WHERE userMail='mail@mail.com';
+
 DELETE FROM sharpenUSERS WHERE userMail='adres@adres.pl';
+DELETE FROM sharpenUSERS WHERE userPhone ISNULL;

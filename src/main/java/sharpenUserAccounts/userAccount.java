@@ -12,9 +12,15 @@ public class userAccount {
 	private int userPhone;
 	
 	
-	public userAccount(String userMail, String userPassword) {
+	public userAccount(String userMail, String userPassword, String userName, String userSurname, String userStreet, String userPostalCode, String userCity, int userPhone) {
 		this.userMail = userMail;
 		this.userPassword = userPassword;
+		this.userName = userName;
+		this.userSurname = userSurname;
+		this.userStreet = userStreet;
+		this.userPostalCode = userPostalCode;
+		this.userCity = userCity;
+		this.userPhone = userPhone;
 	}
 
 

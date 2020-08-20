@@ -17,7 +17,9 @@ public class addUser {
 	public void dbAddUser() {
 		
 		try {
-			connection.getStatement().execute("INSERT INTO sharpenUSERS (userMail, userPassword) VALUES ('" + account.getUserMail() + "','" + account.getUserPassword() + "')");
+			connection.getStatement().execute("INSERT INTO sharpenUSERS (userMail, userPassword, userName, userSurname, userStreet, userPostalCode, userCity, userPhone) "
+					+ "VALUES ('" + account.getUserMail() + "','" + account.getUserPassword() + "','" + account.getUserName() + "','" + account.getUserSurname() + "','" + 
+					account.getUserStreet() + "','" + account.getUserPostalCode() + "','" + account.getUserCity() + "','" + account.getUserPhone() + "')");
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
