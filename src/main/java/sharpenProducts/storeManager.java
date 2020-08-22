@@ -2,12 +2,15 @@ package sharpenProducts;
 
 import sharpenDataBase.newConnection;
 import sharpenShopping.shoppingBasket;
+import sharpenShopping.shoppingClient;
 
 public class storeManager {
 	
 	private productCategory meleeWeapons;
 	private productCategory firearmsWeapons;
 	public static shoppingBasket basket;
+	public static shoppingClient client; 
+	public static boolean loginStatus;
 //	private static newConnection connection;
 	
 	public storeManager() {
@@ -108,9 +111,5 @@ public class storeManager {
 	public static shoppingBasket getBasket () {
 		return basket;		
 	}
-
-//	public static newConnection getConnection() {
-//		return connection;
-//	}
 	
 }

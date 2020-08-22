@@ -13,33 +13,45 @@ import org.springframework.web.servlet.View;
 import sharpenDataBase.addUser;
 import sharpenDataBase.getPassword;
 import sharpenDataBase.newConnection;
+import sharpenProducts.storeManager;
+import sharpenShopping.shoppingClient;
 import sharpenUserAccounts.userAccount;
 
 @Controller
 public class loginController {
 
+//	-----------------------------------------------------CLASSIC LOGIN SITE
+	
 	@GetMapping("/login")
-	public String pageLogin() {
-		return "login";
+	public ModelAndView pageLogin() {
+		
+		if (storeManager.loginStatus = true) {
+			
+			return new ModelAndView("redirect:/account");
+		}
+		return new ModelAndView("login");
 	}
 	
 	@PostMapping("/login")
 	public ModelAndView redirectToAccount(@RequestParam(value = "email") String login, @RequestParam(value = "password") String password, HttpServletRequest request) {
 		
-		newConnection sharpenDB = new newConnection("jdbc:postgresql://localhost/SHARPEN", "postgres", "postgres");
-		getPassword getPassword = new getPassword(sharpenDB,login);
-		String dbPassword = getPassword.getUserPassword();
+			newConnection sharpenDB = new newConnection("jdbc:postgresql://localhost/SHARPEN", "postgres", "postgres");
+			getPassword getPassword = new getPassword(sharpenDB,login);
+			String dbPassword = getPassword.getUserPassword();
 		
-		if (getPassword.isMailInDB()==true) {
-			if (dbPassword.equals(password)) {		
-				request.setAttribute(View.RESPONSE_STATUS_ATTRIBUTE, HttpStatus.TEMPORARY_REDIRECT);
-				return new ModelAndView("redirect:/account");
+			if (getPassword.isMailInDB()==true) {
+				if (dbPassword.equals(password)) {		
+					request.setAttribute(View.RESPONSE_STATUS_ATTRIBUTE, HttpStatus.TEMPORARY_REDIRECT);
+					storeManager.client = new shoppingClient(login);
+					storeManager.loginStatus = true;
+					return new ModelAndView("redirect:/account");
+				}
+				else
+					return new ModelAndView("loginPasswordError");
 			}
 			else
-				return new ModelAndView("loginPasswordError");
-		}
-		else
-			return new ModelAndView("loginEmailError");
+				return new ModelAndView("loginEmailError");
+		
 	}
 	
 	@PostMapping("/account")
@@ -47,7 +59,10 @@ public class loginController {
 		return new ModelAndView("account");
 	}
 	
+//	----------------------------------------------------- LOGIN SITE (SHOPPING PROCESS)
 	
+	
+//	-----------------------------------------------------REGISTRATION SITE
 	@GetMapping("/register")
 	public String pageRegister() {
 		return "register";
@@ -75,6 +90,7 @@ public class loginController {
 			return "registerError";
 	}
 	
+//	-----------------------------------------------------ACCOUNT PANEL SITE
 	@GetMapping("/account")
 	public String pageAccount() {
 		return "account";
