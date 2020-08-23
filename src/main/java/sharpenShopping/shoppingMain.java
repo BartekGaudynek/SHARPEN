@@ -8,9 +8,5 @@ public class shoppingMain {
 		
 		storeManager storeSharpen = new storeManager();
 //		storeSharpen.getConnection();
-		
-		shoppingSummary summary = new shoppingSummary("mail@mail.com");
-		summary.getBasketProducts();
-		summary.getClientData();
 	}
 }

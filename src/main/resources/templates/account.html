@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html xmlns:th="http:www.thymeleaf.org">
 <head>
 	<meta charset="UTF-8">
 	<title> SHARPEN  | Account Site - Personal data</title>
@@ -28,50 +28,20 @@
             <div class ="Panelbox">
                 <nav>
                     <ul class="menu">
-                        <li><a href="#"><strong>DANE KLIENTA</strong></a></li>
-                        <li><a href="#"><strong> ZAMÓWIENIA</strong></a></li>
-                        <li><a href="#"><strong>MY SHARPEN</strong></a></li>
-                        <li><a href="#"><strong> WYLOGUJ</strong></a></li>
+                        <li><a href="/account/clientinfo"><strong>DANE KLIENTA</strong></a></li>
+                        <li><a href="/account/clientorders"><strong> ZAMÓWIENIA</strong></a></li>
+                        <li><a href="/account/mysharpen"><strong>MY SHARPEN</strong></a></li>
+                        <li><a href="/logout"><strong> WYLOGUJ</strong></a></li>
                     </ul>
                 </nav>
             </div>
             <div class="wrapper">
+                <br>
+                <br>
+                <br>
+                <br>
                 <div class="title-panel">
-                    Dane Klienta
-                </div>
-                <div class="form">
-                    <div class="inputfield">
-                        <label>Imię</label>
-                        <input type="text" class="input" value="Janek">
-                    </div>
-                    <div class="inputfield">
-                        <label>Nazwisko</label>
-                        <input type="text" class="input" value="Kowalski">
-                    </div>
-                    <div class="inputfield">
-                        <label>Hasło</label>
-                        <input type="password" class="input" value="Korek123">
-                    </div>
-                    <div class="inputfield">
-                        <label>Email</label>
-                        <input type="text" class="input" value="janekk@wp.pl">
-                    </div>
-                    <div class="inputfield">
-                        <label>Numer telefonu</label>
-                        <input type="text" class="input" value="123456789">
-                    </div>
-                    <div class="inputfield">
-                        <label>Adres</label>
-                        <input type="text" class="input" value="Sokołowska 40">
-                    </div>
-                    <div class="inputfield">
-                        <label>Kod pocztowy</label>
-                        <input type="text" class="input" value="01-136 Warszawa">
-                    </div>
-                    <div class="inputfield">
-                        <input type="submit" value="Zaktualizuj" class="btn">
-                    </div>
-            
+                    <h1>Witaj <span th:text="${name}"></span>!</h1>
                 </div>
     
                 </div>

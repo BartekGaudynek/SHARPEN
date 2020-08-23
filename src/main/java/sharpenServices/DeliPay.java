@@ -18,7 +18,7 @@ public class DeliPay {
 		deliveries = new ArrayList<Delivery>();
 		deliveries.add(new Delivery("Kurier DHL",10,0));
 		deliveries.add(new Delivery("Kurier InPost",10,1));
-		deliveries.add(new Delivery("Odbiór osobisty",10,2));
+		deliveries.add(new Delivery("Odbiór osobisty",0,2));
 		
 	}
 	

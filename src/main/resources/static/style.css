@@ -35,6 +35,7 @@ button{
 p{
 	color: #ffecb3;
 }
+
 .container{
 	max-width: 1300px;
 	margin: auto;
@@ -48,6 +49,13 @@ p{
 	justify-content: space-around;
 	margin-top: 6%;
 	}
+
+.row1{
+	display: flex;
+	flex: wrap;
+	justify-content: space-around;
+	margin-top: 2%;
+	}	
 	
 .col-2{
 	flex-basis: 50%;
@@ -125,7 +133,7 @@ input:focus{
 	transition: transform 0.5s;
 
 }
-.samll-container{
+.small-container{
 	max-height: 1080px;
 	margin: auto;
 	padding-left: 25px;
@@ -253,6 +261,14 @@ th:last-child{
   text-align: center;
 }
 
+.wrapper p{
+	display: none;
+}
+
+.wrapper p:target{
+	display: block;
+}
+
 .wrapper .form{
   width: 100%;
 }
@@ -334,3 +350,6 @@ th:last-child{
 .wrapper .form .inputfield:last-child{
   margin-bottom: 0;
 }
+
+/*----------------account tabs------------------*/
+

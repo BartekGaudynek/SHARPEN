@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html xmlns:th="http:www.thymeleaf.org">
+<head>
+	<meta charset="UTF-8">
+	<title> SHARPEN  | Account Site - Personal data</title>
+	<link rel="stylesheet" href="/style.css">
+	<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet"> 
+</head>
+<body>
+
+<div class="header">
+	<div class="container">
+	
+	<div class="navbar">
+		<div class="logo">
+			<img src="/images/logo2.png"	width="130px">	
+	</div>
+	<nav>
+		<ul>
+			<li><a href="/home">Home</a></li>
+			<li><a href="/products">Produkty</a></li>
+			<li><a href="/contact">Kontakt</a></li>
+			<li><a href="/login">Konto</a></li>
+			<li><a href="/basket">Koszyk</a></li>		
+		</ul>
+	</nav>
+</div>
+            <div class ="Panelbox">
+                <nav>
+                    <ul class="menu">
+                        <li><a href="/account/clientinfo"><strong>DANE KLIENTA</strong></a></li>
+                        <li><a href="/account/clientorders"><strong> ZAMÓWIENIA</strong></a></li>
+                        <li><a href="/account/mysharpen"><strong>MY SHARPEN</strong></a></li>
+                        <li><a href="/logout"><strong> WYLOGUJ</strong></a></li>
+                    </ul>
+                </nav>
+            </div>
+            <div class="wrapper">
+            	<br>
+                <div class="title-panel">
+                    Dane Klienta
+                </div>
+                <br>
+                <div class="form">
+                <form id="form1" method="post" action="clientinfo">
+                    <div class="inputfield">
+                        <label>Imię</label>
+                        <input type="text" class="input" th:value="${name}" name="name">
+                    </div>
+                    <div class="inputfield">
+                        <label>Nazwisko</label>
+                        <input type="text" class="input" th:value="${surname}" name="surname">
+                    </div>
+                    <div class="inputfield">
+                        <label>Hasło</label>
+                        <input type="password" class="input" th:value="${password}" name="password">
+                    </div>
+                    <div class="inputfield">
+                        <label>Ulica</label>
+                        <input type="text" class="input" th:value="${street}" name="street">
+                    </div>
+                    <div class="inputfield">
+                        <label>Kod pocztowy</label>
+                        <input type="text" class="input" th:value="${postalcode}" name="postalcode">
+                    </div>
+                    <div class="inputfield">
+                        <label>Miasto</label>
+                        <input type="text" class="input" th:value="${city}" name="city">
+                    </div>
+                    <div class="inputfield">
+                        <label>Numer telefonu</label>
+                        <input type="text" class="input" th:value="${phone}" name="phone">
+                    </div>
+                    <div class="inputfield">
+                        <button type="submit" class="btn" form="form1">Zaktualizuj</button>
+                    </div>
+            	</form>
+                </div>
+    
+                </div>
+	
+</div>
+</div>
+
+</body>
+</html>

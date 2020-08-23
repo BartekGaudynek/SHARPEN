@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html xmlns:th="http:www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+    <title> SHARPEN | Shopping Cart </title>
+    <link rel="stylesheet" href="/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+</head>
+<body>
+<div class="header">
+        <div class="container">
+
+            <div class="navbar">
+                <div class="logo">
+                    <img src="/images/logo2.png" width="130px">
+                </div>
+                <nav>
+                    <ul>
+                      	<li><a href="/home">Home</a></li>
+						<li><a href="/products">Produkty</a></li>
+						<li><a href="/contact">Kontakt</a></li>
+						<li><a href="/login">Konto</a></li>
+						<li><a href="/basket">Koszyk</a></li>
+                    </ul>
+                </nav>
+            </div>
+        
+	<div class="row">
+		<div class="col-2">
+		<h2 style="color: #ffecb3">Szczegóły zamówienia</h2>
+		</div>
+		
+		<div class="col-2">
+		<h2 style="color: #ffecb3">Dane do wysyłki</h2>
+		</div>
+		
+		<div class="col-2">
+		<h2 style="color: #ffecb3">Dostawa i płatność</h2>
+		</div>
+	</div>
+
+	<div class="row1">	
+		<div class="col-2" style="color: #ffecb3">
+			<table>
+                <thead>
+                   	<tr>
+                       	<th style="width:250px">Produkt</th>
+                       	<th style="width:50px">Cena</th>
+                   	</tr>
+                </thead>
+			
+				<tbody>
+                    <tr th:each="basket, itemIndex: ${basket}">
+                       <td th:text="${basket.nazwa}"></td>
+                       <td th:text="${basket.cena}" style="text-align:center">$</td>
+                    </tr>
+                </tbody>
+			</table>
+		</div>
+		
+		<div class="col-2" style="color: #ffecb3">
+			<table>
+				<tbody>
+					<tr>
+						<td style="width:250px"><b>Imię</b></td>
+						<td th:text="${name}"></td>	
+					</tr>
+					<tr>
+						<td><b>Nazwisko</b></td>
+						<td th:text="${surname}"></td>	
+					</tr>
+					<tr>
+						<td><b>Ulica</b></td>
+						<td th:text="${street}"></td>	
+					</tr>
+					<tr>
+						<td><b>Kod pocztowy</b></td>
+						<td th:text="${postalcode}"></td>	
+					</tr>
+					<tr>
+						<td><b>Miasto</b></td>
+						<td th:text="${city}"></td>	
+					</tr>
+					<tr>
+						<td><b>Telefon kontaktowy</b></td>
+						<td th:text="${phone}"></td>	
+					</tr>
+				</tbody>
+			</table>
+		</div>
+		
+		<div class="col-2" style="color: #ffecb3">
+			<table>
+				<tbody>
+					<tr><td><b>Wybrana forma dostawy</b></td></tr>
+					<tr><td th:text="${delivery.nazwa}"></td></tr>
+					<tr><td>&nbsp;</td></tr>
+					<tr><td><b>Wybrana forma płatności</b></td></tr>
+					<tr><td th:text="${payment.nazwa}"></td></tr>
+				</tbody>
+			</table>
+		</div>
+		
+		
+	</div>
+	<div class="row">
+		<div style="text-align: right; color: #ffecb3">
+		<h3>Łączna wartość zamówienia:&nbsp;&nbsp;<span th:text="${totalprice}"></span>$</h3>
+		</div>
+	</div>
+		</div>
+        
+ 
+</div>
+
+</body>
+</html>

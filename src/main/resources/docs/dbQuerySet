@@ -25,14 +25,32 @@ DROP TABLE sharpenUSERS;
 INSERT INTO sharpenUSERS (userMail, userPassword, userName, userSurname, userStreet, userPostalCode, userCity, userPhone) VALUES
 ('mail@mail.com','mail123','mail','mailowski','mailowa','99-999','mailowo', 987654321)
 
+4. Tworzenie bazy danych do przechowywania informacji o punktach mySHARPEN
 
+CREATE TABLE mySHARPEN(
+	USER_ID serial,
+	userMail varchar(150),
+	userPoints int,
+	PRIMARY KEY(USER_ID)
+);
 
+5. Usunięcie bazy danych z informacjami o kontach użytkowników
+
+DROP TABLE mySHARPEN;
+
+6. Dodanie punktów przypisanych do testowego konta użytkownika
+
+INSERT INTO mySHARPEN (userMail, userPoints) VALUES
+('mail@mail.com',100)
 
 ---------------------------------- Kilka zapytań pomocniczych na etapie tworzenia DB -----------------------------------
 ------------------------------------------------------------------------------------------------------------------------
 
 SELECT * FROM sharpenUSERS;
 SELECT * FROM sharpenUSERS WHERE userMail='mail@mail.com';
+
+SELECT * FROM mySHARPEN;
+SELECT * FROM mySHARPEN WHERE userMail='mail@mail.com';
 
 DELETE FROM sharpenUSERS WHERE userMail='adres@adres.pl';
 DELETE FROM sharpenUSERS WHERE userPhone ISNULL;

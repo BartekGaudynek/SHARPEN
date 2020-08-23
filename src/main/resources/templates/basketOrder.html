@@ -25,12 +25,28 @@
                     </ul>
                 </nav>
             </div>
- <!------------------- cart item details------->
+ 
 			<div class="row">
 				<div class="col-2">
+					<form id="form1" method="post" action="order">
 					<h2 style="color: #ffecb3">Dostawa</h2>
+						<h4 style="color: #ffecb3"> Wybierz formę dostawy:</h4>
+						<div th:each="delivery: ${delivery}">
+						<input type="radio" id="delivery" name="get" th:value="${delivery.deliveryID}">
+						<label style="color: #ffecb3" for="DHL"><span th:text="${delivery.nazwa}"></span>&nbsp;(Cena:&nbsp;<span th:text="${delivery.cena}"></span>$)</label><br>
+						</div>
+					
+					<br><br>
+					
 					<h2 style="color: #ffecb3">Forma płatności</h2>
-					<a href="/products" class="btn">Sprawdź asortyment &#8594;</a>
+						<h4 style="color: #ffecb3"> Wybierz formę płatności:</h4>
+						<div th:each="payment: ${payment}">
+						<input type="radio" id="payment" name="pay" th:value="${payment.paymentID}">
+						<label style="color: #ffecb3" for="DHL"><span th:text="${payment.nazwa}"></span>&nbsp;(Cena:&nbsp;<span th:text="${payment.cena}"></span>$)</label><br>
+						</div>
+					
+					<button class="btn" type="submit" form="form1">Potwierdź</button>
+					</form>
 				</div>	
 			</div>     
 

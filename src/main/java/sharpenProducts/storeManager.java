@@ -1,17 +1,18 @@
 package sharpenProducts;
 
-import sharpenDataBase.newConnection;
+import sharpenServices.DeliPay;
 import sharpenShopping.shoppingBasket;
-import sharpenShopping.shoppingClient;
+import sharpenShopping.shoppingDelivery;
 
 public class storeManager {
 	
 	private productCategory meleeWeapons;
 	private productCategory firearmsWeapons;
 	public static shoppingBasket basket;
-	public static shoppingClient client; 
+	public static shoppingDelivery delivery;
 	public static boolean loginStatus;
-//	private static newConnection connection;
+	public static DeliPay delipay;
+	public static String loginEmail;
 	
 	public storeManager() {
 		
@@ -19,9 +20,13 @@ public class storeManager {
 		
 		basket = new shoppingBasket();
 		
+//		-----------------------------------------DELIVERY & PAYMENTS
+		
+		delipay = new DeliPay();
+		
 //		-----------------------------------------PRODUCT CATEGORIES
 		meleeWeapons = new productCategory("Melee");
-		firearmsWeapons = new productCategory("Melee");
+		firearmsWeapons = new productCategory("Firearms");
 		
 		
 //		-----------------------------------------PRODUCT SUBCATEGORIES

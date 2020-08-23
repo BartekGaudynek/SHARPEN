@@ -4,6 +4,7 @@ import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -12,9 +13,10 @@ import org.springframework.web.servlet.View;
 
 import sharpenDataBase.addUser;
 import sharpenDataBase.getPassword;
+import sharpenDataBase.getUser;
 import sharpenDataBase.newConnection;
+import sharpenDataBase.updateUser;
 import sharpenProducts.storeManager;
-import sharpenShopping.shoppingClient;
 import sharpenUserAccounts.userAccount;
 
 @Controller
@@ -25,7 +27,7 @@ public class loginController {
 	@GetMapping("/login")
 	public ModelAndView pageLogin() {
 		
-		if (storeManager.loginStatus = true) {
+		if (storeManager.loginStatus == true) {
 			
 			return new ModelAndView("redirect:/account");
 		}
@@ -42,8 +44,8 @@ public class loginController {
 			if (getPassword.isMailInDB()==true) {
 				if (dbPassword.equals(password)) {		
 					request.setAttribute(View.RESPONSE_STATUS_ATTRIBUTE, HttpStatus.TEMPORARY_REDIRECT);
-					storeManager.client = new shoppingClient(login);
 					storeManager.loginStatus = true;
+					storeManager.loginEmail = login;
 					return new ModelAndView("redirect:/account");
 				}
 				else
@@ -55,12 +57,12 @@ public class loginController {
 	}
 	
 	@PostMapping("/account")
-	public ModelAndView redirectedToAccount() {
+	public ModelAndView redirectedToAccount(Model model) {
+		newConnection sharpenDB = new newConnection("jdbc:postgresql://localhost/SHARPEN", "postgres", "postgres");
+		getUser getUser = new getUser(sharpenDB, storeManager.loginEmail);
+		model.addAttribute("name", getUser.getUserName());
 		return new ModelAndView("account");
-	}
-	
-//	----------------------------------------------------- LOGIN SITE (SHOPPING PROCESS)
-	
+	}	
 	
 //	-----------------------------------------------------REGISTRATION SITE
 	@GetMapping("/register")
@@ -92,7 +94,60 @@ public class loginController {
 	
 //	-----------------------------------------------------ACCOUNT PANEL SITE
 	@GetMapping("/account")
-	public String pageAccount() {
+	public String pageAccount(Model model) {
+		
+		newConnection sharpenDB = new newConnection("jdbc:postgresql://localhost/SHARPEN", "postgres", "postgres");
+		getUser getUser = new getUser(sharpenDB, storeManager.loginEmail);
+		model.addAttribute("name", getUser.getUserName());
+		System.out.println(getUser.getUserName());
+		
 		return "account";
+	}
+	
+	@GetMapping("/account/clientinfo")
+	public String pageAccountClient(Model model) {
+		
+		newConnection sharpenDB = new newConnection("jdbc:postgresql://localhost/SHARPEN", "postgres", "postgres");
+		getUser getUser = new getUser(sharpenDB, storeManager.loginEmail);
+		System.out.println(storeManager.loginEmail);
+		System.out.println(getUser.getUserName());
+		model.addAttribute("name", getUser.getUserName());
+		model.addAttribute("surname", getUser.getUserSurname());
+		model.addAttribute("email", getUser.getUserMail());
+		model.addAttribute("password", getUser.getUserPassword());
+		model.addAttribute("street", getUser.getUserStreet());
+		model.addAttribute("postalcode", getUser.getUserPostalCode());
+		model.addAttribute("city", getUser.getUserCity());
+		model.addAttribute("phone", getUser.getUserPhone());
+		
+		return "accountInfo";
+	}
+	
+	@PostMapping("/account/clientinfo")
+	public String pageAccountClientUpdate(@RequestParam(value = "name") String name, @RequestParam(value = "surname") String surname,
+			@RequestParam(value = "password") String password, @RequestParam(value = "street") String street, @RequestParam(value = "postalcode") String postalcode, 
+			@RequestParam(value = "city") String city, @RequestParam(value = "phone") String phone, Model model) {
+		
+		newConnection sharpenDB = new newConnection("jdbc:postgresql://localhost/SHARPEN", "postgres", "postgres");
+		updateUser updateUser = new updateUser(sharpenDB,storeManager.loginEmail,password,name,surname,street,postalcode,city,Integer.parseInt(phone));
+		updateUser.updateData();
+		
+		return "accountInfo";
+	}
+	
+	@GetMapping("/account/clientorders")
+	public String pageAccountOrders() {
+		return "accountOrders";
+	}
+	
+	@GetMapping("/account/mysharpen")
+	public String pageAccountMySharpen() {
+		return "accountMySharpen";
+	}
+	
+	@GetMapping("/logout")
+	public ModelAndView logout() {
+		storeManager.loginStatus = false;
+		return new ModelAndView("redirect:/login");
 	}
 }
